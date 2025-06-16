@@ -1,0 +1,33 @@
+.feedback-form{
+    width: 45%;
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 14px;
+    border-radius: 28px;
+    background: #f6f6f6;
+    border: 2px solid black;
+    margin-top: 10%;
+    margin-right: 50%;
+    margin-left: 28%;
+    margin-bottom: 50%;
+}
+
+.rating {
+    text-align: center;
+    border: none;
+    font-size: 30px;
+}
+
+.rating > label {
+    display: inline-block;
+    padding: 5px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input:checked ~ label {
+    color: #f90;
+}

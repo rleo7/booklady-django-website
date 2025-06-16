@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    {{ user.get_username }}'s Profile
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="detail-container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="profile">
+                    <div class="score-info">
+                        <p class="profile-header">Score</p>
+                        <p class="profile-data">{{ user.score }}</p>
+                    </div>
+                    <div class="pages-info">
+                        <p class="profile-header">Lifetime Pages Read</p>
+                        <p class="profile-data">{{ user.lifetime_pages_read }}</p>
+                    </div>
+                    <div class="books-info">
+                        <p class="profile-header">Lifetime Books Read</p>
+                        <p class="profile-data">{{ user.lifetime_books_read }}</p>
+                    </div>
+                    <div class="code-info">
+                        <p class="profile-header">Friend Code</p>
+                        <p class="profile-data">{{ user.friend_code }}</p>
+                    </div>
+                    <div class="last-login-info">
+                        <p class="profile-header">Last Login</p>
+                        <p class="profile-data">{{ user.last_login|date:"F j, Y, g:i a" }}</p>
+                    </div>
+                    <div class="daily-streak">
+                        <p class="profile-header">Daily Streak</p>
+                        <p class="profile-data">{{ user.daily_streak }}</p>
+                    </div>
+                    <div class="list-info">
+                        <a href="{% url 'friends_list_page' %}" class="btn list">Friends List</a>
+                    </div>
+
+                    <!-- Display badges -->
+                    <div class="badges-info">
+                        <h2>Your Badges:</h2>
+                        <div class="badges">
+                            {% for badge in user.badges.all %}
+                                <div class="badge-image">
+                                    <img src="{% static badge.image.url %}">
+                                    <p>{{ badge.description }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

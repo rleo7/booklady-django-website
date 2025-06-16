@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+<html>
+  <!-- All meta data-->
+  <head>
+    {% block page_title %} Search for a Book {% endblock page_title%}
+    {% block content %}
+  </head>
+  <!-- Main content-->
+  <body>
+    <main class="search">
+      <h2>Book Search</h2>
+      <!-- Form data -->
+      <form class="form" action="{% url 'book_list' %}" method="GET">
+        {% csrf_token %}
+        <label for="{{ form.search.id_for_label }}"> Search for a book</label>
+        <div class="field">
+          {{ form.search }}
+          <button class="field__button" aria-label="Search"></button>
+        </div>
+        <label for="{{ form.isbn.id_for_label }}"> Search by isbn </label>
+        <div class="field">
+          {{ form.isbn }}
+            <button class="field__button" aria-label="Search"></button>
+        </div>
+      </form>
+    </main>
+  </body>
+  {% endblock content %}
+</html>

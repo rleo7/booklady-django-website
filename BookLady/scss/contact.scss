@@ -1,0 +1,30 @@
+.contact {
+    width: max-content;
+    display: block;
+    padding: 14px;
+    border-radius: 28px;
+    background: #f6f6f6;
+    border: 2px solid black;
+    margin-top: 10%;
+    margin-right: 50%;
+    margin-left: 38%;
+    margin-bottom: 50%;
+}
+.contact-title{
+    text-align: center;
+}
+
+.fieldWrapper{
+    display: flex;
+    text-align: left;
+    padding: 5px;
+    margin-right: 10px;
+
+}
+
+.fieldWrapper label{
+    margin-right: 5px;
+}
+.submit-button{
+    text-align: center;
+}

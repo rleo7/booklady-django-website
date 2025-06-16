@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="register-container-title">
+    <h2>Register</h2>
+    
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="register">
+                <button type="submit" >{% trans 'Register' %}</button>
+            </div>
+        </form>
+</div>
+{% endblock content %}

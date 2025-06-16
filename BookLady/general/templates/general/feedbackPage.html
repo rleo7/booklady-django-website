@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}Leave us Feedback{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="feedback-form">
+        <h2>Feedback Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="rating">
+                <input type="hidden" name="rating" id="rating">
+                <label for="star10"><i class="far fa-star"></i></label>
+                <label for="star9"><i class="far fa-star"></i></label>
+                <label for="star8"><i class="far fa-star"></i></label>
+                <label for="star7"><i class="far fa-star"></i></label>
+                <label for="star6"><i class="far fa-star"></i></label>
+                <label for="star5"><i class="far fa-star"></i></label>
+                <label for="star4"><i class="far fa-star"></i></label>
+                <label for="star3"><i class="far fa-star"></i></label>
+                <label for="star2"><i class="far fa-star"></i></label>
+                <label for="star1"><i class="far fa-star"></i></label>
+            </div>
+            <br>
+            <textarea name="comments" cols= "40" rows="4" placeholder="Enter your comments"></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    const labels = document.querySelectorAll('.rating label');
+    let rating = 0;
+    labels.forEach(label => {
+        label.addEventListener('click', () => {
+            rating = [...labels].indexOf(label) + 1;
+            document.getElementById('rating').value = rating;
+            labels.forEach((label, index) => {
+                label.querySelector('i').classList.toggle('fas', index < rating);
+                label.querySelector('i').classList.toggle('far', index >= rating);
+            });
+        });
+    });
+</script>
+</html>
+{% endblock %}

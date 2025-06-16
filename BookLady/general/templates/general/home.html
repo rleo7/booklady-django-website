@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block page_title %}Home Page{% endblock %}
+
+    {% block content %}
+    <div class="home-table">
+        <div class="container table-container" >
+            <h2>Latest Books</h2>
+            <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Author</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Amazon Product URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for book in list %}
+                            <tr>
+                                <td>{{ book.rank }}</td>
+                                <td>{{ book.author }}</td>
+                                <td>{{ book.title }}</td>
+                                <td>{{ book.description }}</td>
+                                <td><a href="{{ book.amazon_product_url }}">Click here</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </body>
+                </html>
+        </div>
+    </div>
+    {% endblock%}
+
+</html>

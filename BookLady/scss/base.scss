@@ -1,0 +1,23 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.content-wrapper {
+    position: absolute;
+    padding-top: 11.3vh;
+    padding-bottom: 4rem;
+    padding-left: 35vh;
+    padding-right: 2rem;
+    height: 100%;
+    width: 100%;
+
+}
+
+.title{
+    z-index: 2
+;
+}

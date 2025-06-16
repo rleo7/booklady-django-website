@@ -1,0 +1,137 @@
+{
+    "users": [
+    {
+        "username": "erobic0",
+        "password": "$2a$04$XDRq3838nB9PlziUvL/.Z.2pTzAggmOrwUu3JTyhC90ZlrEuLXmtW",
+        "email": "erobic0@parallels.com",
+        "first_name": "Elyn",
+        "last_name": "Robic",
+        "friend_code": 1,
+        "score": 73,
+        "lifetime_pages_read": 6179,
+        "lifetime_books_read": 45,
+        "friends_list": [ "rmazdon1", "hvanderveldt5" ]
+      }, {
+        "username": "rmazdon1",
+        "password": "$2a$04$SNP.4CAD53Vm3gVILu.6n.oAE9LIfWjyjcCBL6sU91aoF2OeNdgOe",
+        "email": "rmazdon1@sbwire.com",
+        "first_name": "Randie",
+        "last_name": "Mazdon",
+        "friend_code": 2,
+        "score": 8,
+        "lifetime_pages_read": 455,
+        "lifetime_books_read": 26,
+        "friends_list": [ "erobic0" ]
+      }, {
+        "username": "rwallen2",
+        "password": "$2a$04$jN7xe1TEhn.U2IfiR/Bew.0SHuT89dg3AISrQrDPdTwfBj3pUPm06",
+        "email": "rwallen2@accuweather.com",
+        "first_name": "Rudd",
+        "last_name": "Wallen",
+        "friend_code": 3,
+        "score": 75,
+        "lifetime_pages_read": 2032,
+        "lifetime_books_read": 43,
+        "friends_list": [ "mplacido7" ]
+      }, {
+        "username": "smeek3",
+        "password": "$2a$04$JcANPLHkRqzN8wpqyyPk3Opt5A2vs5B/X3VnQN84/mnaQBmnerny2",
+        "email": "smeek3@army.mil",
+        "first_name": "Saunders",
+        "last_name": "Meek",
+        "friend_code": 4,
+        "score": 55,
+        "lifetime_pages_read": 6487,
+        "lifetime_books_read": 21,
+        "friends_list": [ "ctorel4", "plinford8" ]
+      }, {
+        "username": "ctorel4",
+        "password": "$2a$04$kCFYCGpvEK7z73Oplnc5nejN2Xo3r785YD8LfpiK9DI32QRsZV6QC",
+        "email": "ctorel4@dell.com",
+        "first_name": "Courtney",
+        "last_name": "Torel",
+        "friend_code": 5,
+        "score": 53,
+        "lifetime_pages_read": 8663,
+        "lifetime_books_read": 27,
+        "friends_list": [ "smeek3" ]
+      }, {
+        "username": "hvanderveldt5",
+        "password": "$2a$04$QAMwcCugZ.KEdYsMeGyXhOBJpi8fpt56pY6T/SwT0LPUS1M0EVGBG",
+        "email": "hvanderveldt5@tinyurl.com",
+        "first_name": "Horacio",
+        "last_name": "Van der Veldt",
+        "friend_code": 6,
+        "score": 94,
+        "lifetime_pages_read": 3759,
+        "lifetime_books_read": 41,
+        "friends_list": [ "erobic0" ]
+      }, {
+        "username": "eshilito6",
+        "password": "$2a$04$Ugskk1gqBv3kDPmPBYosDeKimKLkT44Qxy05le0Ig4XUXWnJfN1ja",
+        "email": "eshilito6@epa.gov",
+        "first_name": "Eugene",
+        "last_name": "Shilito",
+        "friend_code": 7,
+        "score": 63,
+        "lifetime_pages_read": 2752,
+        "lifetime_books_read": 45,
+        "friends_list": [ "mplacido7" ]
+      }, {
+        "username": "mplacido7",
+        "password": "$2a$04$5LeXe1RKp9hvuQ2tipa17.mKNF242yeceekQdNXLWi6fj2S1KApL6",
+        "email": "mplacido7@mlb.com",
+        "first_name": "Myrtie",
+        "last_name": "Placido",
+        "friend_code": 8,
+        "score": 21,
+        "lifetime_pages_read": 8363,
+        "lifetime_books_read": 18,
+        "friends_list": [ "eshilito6" ]
+      }, {
+        "username": "plinford8",
+        "password": "$2a$04$vBW5bswr8SGoI8dZ2WrkWeQJX7d04xzBzEnfIQnnuR0udX1bRsONq",
+        "email": "plinford8@nih.gov",
+        "first_name": "Pearle",
+        "last_name": "Linford",
+        "friend_code": 9,
+        "score": 4,
+        "lifetime_pages_read": 1740,
+        "lifetime_books_read": 7,
+        "friends_list": [ "smeek3" ]
+      }, {
+        "username": "mosgorby9",
+        "password": "$2a$04$MEoP8V/iGDFNSvptvyMmruMQ9.oALbiNde81N6Rmy29zejRKRIWq6",
+        "email": "mosgorby9@xing.com",
+        "first_name": "Meredithe",
+        "last_name": "Osgorby",
+        "friend_code": 10,
+        "score": 28,
+        "lifetime_pages_read": 1678,
+        "lifetime_books_read": 17,
+        "friends_list": []
+      }, {
+        "username": "testing",
+        "password": "TestPassword",
+        "email": "test@test.com",
+        "first_name": "Test",
+        "last_name": "Account",
+        "friend_code": 7522375210,
+        "score": 1600,
+        "lifetime_pages_read": 1600,
+        "lifetime_books_read": 13,
+        "friends_list": [ "FriendTest" ]
+      }, {
+        "username": "FriendTest",
+        "password": "FriendPassword",
+        "email": "FriendTest@test.com",
+        "first_name": "Friend",
+        "last_name": "Test",
+        "friend_code": 6310797039,
+        "score": 1600,
+        "lifetime_pages_read": 1600,
+        "lifetime_books_read": 13,
+        "friends_list": [ "testing" ]
+      }
+    ]
+}

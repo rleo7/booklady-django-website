@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% block page_title %}Contact Page{% endblock %}
+    {% block content %}
+    <div class="contact">
+        <body>
+            <div class="contact-title">
+                <h2>Contact Form</h2>
+            </div>
+            <form action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <div class="submit-button">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+    </div>
+    {% endblock content %}
+</html>

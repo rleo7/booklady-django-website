@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<html>
+    {% block page_title %}Global All Time Leaderboard Page{% endblock %}
+
+    {% block content %}
+        <div class="tables container">
+            <h2> Leaderboard </h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Lifetime Pages Read</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in page_obj %}
+                    <tr id="{{ user.id }}">
+                        <th scope="row">{{ forloop.counter0|add:page_obj.start_index }}</th> <!-- Correctly shows index as given  -->
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.score }}</td>
+                        <td>{{ user.lifetime_pages_read}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% include 'page_navigator.html' %}
+        </div>
+    {% endblock %}
+</html>

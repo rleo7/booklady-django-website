@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block page_title %}Friends Profile{% endblock %}</title>
+</head>
+{% block content %}
+<body>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="profile-title">
+                <h1> {{ user.get_username }}'s Profile</h1>
+            </div>
+            <div class="friends-profile">
+                <div class="score-info">
+                    <p class="profile-header">Score</p>
+                    <p class="profile-data">{{ user.score }}</p>
+                </div>
+                <div class="pages-info">
+                    <p class="profile-header">Lifetime Pages Read</p>
+                    <p class="profile-data"> {{ user.lifetime_pages_read }}</p>
+                </div><div class="books-info"><p class="profile-header">Lifetime Books Read</p>
+                    <p class="profile-data"> {{ user.lifetime_books_read }}</p>
+                </div>
+                <div class="code-info">
+                    <p class="profile-header">Friend Code</p>
+                    <p class="profile-data"> {{ user.friend_code }}</p>
+                </div>
+                <div class="list-info">
+                    <a href="{% url 'friends_list_page' %}" class="btn list">Friends List</a>
+                </div>
+            </div>
+</body>
+{% endblock %}
+</html>

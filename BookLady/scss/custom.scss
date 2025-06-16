@@ -1,0 +1,19 @@
+@import "../bootstrap/scss/bootstrap";
+
+@import 'footer';
+@import 'header';
+@import 'tables';
+@import 'bookDetail';
+@import 'bookSearch';
+@import 'bookList';
+@import 'login';
+@import 'registration';
+@import 'base';
+@import 'profile';
+@import 'contact';
+@import 'legal';
+@import 'feedback';
+@import 'addFriend';
+* {
+    color: black;
+}

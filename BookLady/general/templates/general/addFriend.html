@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Add a Friend{% endblock %}
+
+
+
+{% block content %}
+{% if messages %}
+    {% include 'django_message_handler.html' %}
+{% endif %}
+<div class="friend-container">
+    <h2>Enter your Friend's code</h2>
+    <form action="" method="get">
+        <input type="text" name="friend" id="friend" value="{{ prefill_text }}">
+        <input type="submit">
+    </form>
+    {% if target %}
+    <div class="card">
+        <div class="card-header text-center">{{ target.friend_code }}</div>
+        <div class="card-body">
+            {{ target.username }}<br>
+            {{ target.score }}<br>
+            {{ target.lifetime_books_read }}
+        </div>
+        <div class="card-footer align-content-center justify-content-center">
+            {% if is_already_friend %}
+                <span class="text-muted text-center">Already added</span>
+            {% else %}
+                <form action="{% url 'add_friend' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" id="targetId" name="target_id" value="{{ target.id }}">
+                    <input class="btn btn-primary" type="submit" value="Add Friend">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

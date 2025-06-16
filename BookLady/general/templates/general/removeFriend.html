@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% load static %}
+    <head>
+        <title>The BookLady's Reading Tracker</title>
+        {% block page_title %}Remove a Friend{% endblock %}
+    </head>
+
+    {% block content%}
+    <div class="card">
+        <div class="card-body">
+            {{ target.username }}<br>
+            {{ target.score }}<br>
+            {{ target.lifetime_books_read }}
+        </div>
+    </div>
+    <span class="text-warning">Are you sure you want to remove {{ target.username }} as a friend?</span>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="friend_id" value="{{ target.id }}">
+        <input type="hidden" name="friend_deleted" value="True">
+        <input type="submit" value="Unfriend">
+    </form>
+    {% endblock %}
+</html>

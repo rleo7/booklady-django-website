@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+<html>
+  <!-- Meta data -->
+  <head>
+    {% block page_title %} Book Browse {% endblock page_title%}
+    {% block content %}
+  </head>
+  <!-- Main content -->
+  <body>
+    <div class="book-container">
+    <!-- Load books if data was retrieved -->
+    {% if books %}
+    <ul class="grid">
+      {% for book in books %}
+      <li class="card">
+        <h2 class="card__title">
+          <a class="card__link" href="{% url 'book_detail' %}?isbn={{ book.isbn }}"> {{ book.title }}</a>
+        </h2>
+        <img
+          class="card__image"
+          width="128"
+          height="190"
+          src="{{ book.image }}"
+          alt="{{ book.title }}"
+          identifier = "{{ book.isbn }}"
+        />
+        <div class ="card__isbn">{{ book.isbn}}</div>
+        <div class="card__author">by {{ book.authors }}</div>
+        <div class="card__publisher">{{ book.publisher }}</div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="error">
+      <h2>
+        {{message }}
+      </h2>
+      <a href="/">Search again</a>
+    </div>
+
+    {% endif %}
+    {% endblock content %}
+  </body>
+</html>

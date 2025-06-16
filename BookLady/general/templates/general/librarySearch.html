@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    {% block page_title %}Library Finder{% endblock %}
+    {% block content %}
+    <div class="container mt-5 table-container">
+        <!-- Check if libraries were found neaby -->
+        {% if libraries %}
+        <h2> Libraries near you </h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Library Address</th>
+                    </tr>
+                </thead>
+                <!-- Show each library found -->
+                {% for Library in libraries %}
+                <tbody>
+                    <tr>
+                        <td scope = "row">{{ Library.display_name }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        {% else %}
+        <h2>No libraries found near you</h2>
+        {% endif %}
+    </div>
+
+
+
+    {% endblock content %}
+</html>

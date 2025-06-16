@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <header class="p-3 text-light">
+        <div class="container-fluid">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-9 position-absolute end-0">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="btn btn-light me-2 rounded-3">Profile</a>
+                    <a href="{% url 'logout' %}" class="btn btn-light rounded-3">Sign Out</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-light me-2 rounded-3">Log In</a>
+                    <a href="{% url 'register' %}" class="btn btn-light rounded-3">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <h1 class="visually-hidden">Navigation Bar</h1>
+    <div class="d-flex flex-column flex-shrink-0 p-3 sidebar">
+        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white">
+            <div style="width: 40px; height: 32px; background-color: #40E0D0; margin-right: 8px;"></div>
+            <span class="fs-4">The BookLady's Reading Tracker</span>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">About</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <button class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#library-collapse" aria-expanded="false">
+                    Library Finder
+                </button>
+                <div class="collapse" id="library-collapse">
+                    <div class="position-relative">
+                        <form id="search-form" class="form-search" role="search" method="get" action="{% url 'library_search' %}">
+                            <input type = text step = "any" required id="Postcode" name = "Postcode" class="form-control form-control-sm" placeholder="Input Postcode" aria-label="Search">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a href="{% url 'book_search' %}" class="nav-link">Book Search</a>
+            </li>
+            </hr>
+        <hr>
+        <li class="mb-1">
+            <button class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#leaderboard-collapse" aria-expanded="false">
+            Leaderboard
+            </button>
+            <div class="collapse" id="leaderboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" style="padding-left: 20px;">
+                    <div class="modification">
+                        <li><a href="{% url 'global_monthly' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Global Monthly</a></li>
+                    </div>
+                    <div class="modification">
+                        <li><a href="{% url 'global_alltime' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Global All time</a></li>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="modification">
+                        <li><a href="{% url 'friends_monthly' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Friends Monthly</a></li>
+                    </div>
+                    <div class="modification">
+                        <li><a href="{% url 'friends_alltime' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Friends All time</a></li>
+                    </div>
+                    {% endif %}
+                </ul>
+            </div>
+        </li>
+        <hr></hr>
+            {% if user.is_authenticated %}
+            <li class="mb-1">
+                <button class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#friends-collapse" aria-expanded="false">
+                Friends
+                </button>
+                <div class="collapse" id="friends-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" style="padding-left: 20px;">
+                    <div class="modification">
+                        <li><a href="{% url 'friends_list_page' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Friends List</a></li>
+                    </div>
+                    <div class="modification">
+                        <li><a href="{% url 'add_friend' %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add a Friend</a></li>
+                    </div>
+                </ul>
+                </div>
+            </li>
+            <hr></hr>
+            {% endif %}
+    </hr>
+        </hr>
+        </ul>
+    </div>
+
+</body>
+
+</html>

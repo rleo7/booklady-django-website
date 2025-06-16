@@ -1,0 +1,33 @@
+// styles.scss
+
+$borderColor: rgba(54, 54, 54, 0.5);
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem; // Adjust this value as needed
+    border-top: 0.1px solid $borderColor;
+    z-index: 1;
+    background-color: #ffffff;
+  }
+  
+  .footer p {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .footer a {
+    margin-right: 10px; // Adjust this value as needed
+    margin-left: 10px; // Adjust this value as needed
+    text-decoration: underline;
+    color: #000; // Adjust the color as needed
+  }
+  
+  .footer a:hover {
+    color: #666; // Adjust the color as needed
+  }

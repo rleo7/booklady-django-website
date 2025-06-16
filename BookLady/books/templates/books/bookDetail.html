@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %} Book Details {% endblock page_title %}</title>
+    <style>
+        /* Your CSS/SCSS styles here */
+        .detail-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .book-details {
+            position: absolute;
+            width: fit-content;
+            height: fit-content;
+            left: 450px;
+            padding: 14px;
+            border-radius: 28px;
+            background: #f6f6f6;
+            border: 2px solid black;
+        }
+        .review-content {
+            position: absolute;
+            width: fit-content;
+            height: fit-content;
+            left: 1300px;
+            padding: 14px;
+            border-radius: 28px;
+            background: #f6f6f6;
+            border: 2px solid black;
+        }
+        .review-list {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+        .review-item {
+            margin-bottom: 10px;
+        }
+        .review-item p {
+            margin: 0;
+        }
+        .review-form {
+            margin-top: 20px;
+        }
+        .review-form label,
+        .review-form select,
+        .review-form textarea,
+        .review-form button {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function validatePagesRead() {
+            var totalPages = parseInt("{{ books.0.length }}"); // Get total pages from Django template variable
+            var pagesRead = parseInt(document.getElementById("pages_read").value);
+            if (pagesRead > totalPages) {
+                alert("Pages read cannot exceed the total number of pages in the book.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="detail-container">
+        <!-- Book Details -->
+
+        <div class="book-details">
+            {% if books %}
+            {% for book in books %}
+            <h2>{{ book.title }}</h2>
+            <img src="{{ book.image }}" alt="Book Cover">
+            <p><strong>Author(s):</strong> {{ book.authors }}</p>
+            <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+            <p><strong>Date published:</strong> {{ book.publishedDate }}</p>
+            <p><strong>ISBN 13 / 10:</strong> {{ book.isbn }}</p>
+            <p><strong>Popularity:</strong> {{ book.popularity }}</p>
+            <p><strong>Page Count:</strong> {{ book.length }}</p>
+            <p><strong>Pages Read:</strong> {{ pages_read }}</p> <!-- Display Pages Read -->
+            {% if pages_read == book.length %}
+            <p><strong>Book Read:</strong> Yes</p>
+            {% if user.is_authenticated %}
+            <form action="{% url 'book_read' %}" method="post" class="book-read-form">
+                {% csrf_token %}
+                <button type="submit">Mark as Read</button>
+            </form>
+            {% endif %}
+
+            {% else %}
+            <p><strong>Book Read:</strong> No</p>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <p>No book details available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Update Score Form -->
+        <div class="update-score">
+            <h3>Update Score:</h3>
+            {% if user.is_authenticated %}
+            
+            <form action="{% url 'update_score' %}" method="post" onsubmit="return validatePagesRead()">
+                {% csrf_token %}
+                <input type="hidden" id="isbn" name="isbn" value="{{ form.initial.isbn }}">
+                <label for="pages_read">Pages Read:</label><br>
+                <input type="number" id="pages_read" name="pages_read" required><br><br>
+                <button type="submit">Update Score</button>
+            </form>
+            {% else %}
+            <p>Please <a href="{% url 'login' %}">login</a> to count pages read</p>
+            {% endif %}
+
+        </div>
+        <!-- Review Content -->
+        <div class="review-content">
+            <h3>Reviews:</h3>
+            <div class="review-list">
+                {% if reviews %}
+                {% for review in reviews %}
+                <div class="review-item">
+                    <p><strong>User:</strong> {{ review.user.username }}</p>
+                    <p><strong>Review:</strong> {{ review.review }} - {{ review.rating }}</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>No reviews available.</p>
+                {% endif %}
+            </div>
+
+            <!-- Review Form -->
+            {% if user.is_authenticated %}
+            <form method="post" class="review-form">
+                {% csrf_token %}
+                <input type="hidden" id="isbn" name="isbn" value="{{ form.initial.isbn }}"> <!-- Access ISBN from form -->
+
+                <label for="review">Your Review:</label>
+                <textarea name="review" id="review" rows="4" cols="50" required></textarea>
+
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating" required>
+                    <option value="" selected disabled>Choose Rating</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <button type="submit">Submit Review</button>
+            </form>
+            {% else %}
+
+            <p>Please <a href="{% url 'login' %}">login</a> to submit a review.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</body>
+{% endblock content %}
+</html>
+

@@ -1,0 +1,17 @@
+merging:
+  stage: test
+  only: [ merge_requests ]
+  script:
+     - "[[ \"$CI_MERGE_REQUEST_TARGET_BRANCH_NAME\" =~ ^release$ ]] && [[ ! \"$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME\" =~ ^trunk$ ]] && echo 'Only trunk can be merged to release' && exit 1"
+     - exit 0
+
+pages:
+  stage: deploy
+  script:
+      - apk add python3 py3-yaml py3-mako
+      - python3 /shared/com2027_site.py
+  artifacts:
+    paths:
+      - public
+  only:
+    - release
